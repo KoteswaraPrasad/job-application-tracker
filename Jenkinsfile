@@ -5,6 +5,7 @@ pipeline {
         DOCKERHUB_USERNAME = 'koteswaraprasad'
         FRONTEND_IMAGE     = "${DOCKERHUB_USERNAME}/job-tracker-frontend:latest"
         BACKEND_IMAGE      = "${DOCKERHUB_USERNAME}/job-tracker-backend:latest"
+        PROJECT_DIR        = 'C:\\Users\\Koteswara_prasad\\OneDrive\\Desktop\\JAT'
     }
 
     stages {
@@ -35,14 +36,14 @@ pipeline {
         stage('Stop Old Containers') {
             steps {
                 echo '🛑 Stopping old containers...'
-                bat 'docker-compose down --remove-orphans || exit 0'
+                bat "cd %PROJECT_DIR% && docker-compose down --remove-orphans || exit 0"
             }
         }
 
         stage('Deploy') {
             steps {
                 echo '🚀 Deploying new containers...'
-                bat 'docker-compose up -d'
+                bat "cd %PROJECT_DIR% && docker-compose up -d"
             }
         }
 
