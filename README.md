@@ -1,4 +1,4 @@
-# Job Application Tracker — DevOps Setup Guide
+# Job Application Tracker 
 
 ## 📦 Tech Stack
 - **Docker** — Containerization
