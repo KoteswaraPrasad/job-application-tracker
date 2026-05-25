@@ -1,0 +1,52 @@
+services:
+
+  # Node.js + Express Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: job-tracker-backend
+    restart: always
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend/uploads:/app/uploads
+    networks:
+      - job-tracker-network
+
+  # React Frontend served via Nginx
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: job-tracker-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - job-tracker-network
+
+  # Jenkins for CD
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: job-tracker-jenkins
+    restart: always
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - job-tracker-network
+
+volumes:
+  jenkins_data:
+
+networks:
+  job-tracker-network:
+    driver: bridge
