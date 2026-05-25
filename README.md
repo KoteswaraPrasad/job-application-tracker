@@ -1,4 +1,4 @@
-# Job Application Tracker
+# Job Application Tracker — DevOps Setup Guide
 
 ## 📦 Tech Stack
 - **Docker** — Containerization
@@ -6,5 +6,3 @@
 - **GitHub Actions** — CI (Test + Build + Push to DockerHub)
 - **Jenkins** — CD (Pull image + Deploy containers)
 
----
-## DevOps Setup Complete
