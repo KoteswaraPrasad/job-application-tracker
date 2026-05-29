@@ -10,9 +10,9 @@ on:
 
 jobs:
 
-  # ─────────────────────────────────────────
+  # ────────────────────────────────────────
   # JOB 1: Test Backend
-  # ─────────────────────────────────────────
+  # ────────────────────────────────────────
   test-backend:
     name: Test Backend
     runs-on: ubuntu-latest
@@ -33,9 +33,9 @@ jobs:
         working-directory: ./backend
         run: npm test --if-present
 
-  # ─────────────────────────────────────────
+  # ────────────────────────────────────────
   # JOB 2: Build & Push Docker Images
-  # ─────────────────────────────────────────
+  # ────────────────────────────────────────
   build-and-push:
     name: Build & Push to DockerHub
     runs-on: ubuntu-latest
