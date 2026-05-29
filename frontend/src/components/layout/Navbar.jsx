@@ -15,7 +15,7 @@ const Navbar = () => {
 
         {isAuthenticated ? (
           <Box>
-            <Button color="inherit" component={Link} to="/dashboard">Dashboard</Button>
+            <Button color="inherit" component={Link} to="/dashboard">dashboard</Button>
             <Button color="inherit" component={Link} to="/timeline">Timeline</Button>
             <Button color="inherit" onClick={logout}>Logout</Button>
           </Box>
