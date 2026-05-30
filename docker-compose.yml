@@ -2,9 +2,7 @@ services:
 
   # Node.js + Express Backend
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: koteswaraprasad/job-tracker-backend:latest
     container_name: job-tracker-backend
     restart: always
     ports:
@@ -18,9 +16,7 @@ services:
 
   # React Frontend served via Nginx
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: koteswaraprasad/job-tracker-frontend:latest
     container_name: job-tracker-frontend
     restart: always
     ports:
