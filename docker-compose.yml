@@ -30,23 +30,6 @@ services:
     networks:
       - job-tracker-network
 
-  # Jenkins for CD
-  jenkins:
-    image: jenkins/jenkins:lts
-    container_name: job-tracker-jenkins
-    restart: always
-    ports:
-      - "8080:8080"
-      - "50000:50000"
-    volumes:
-      - jenkins_data:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-    networks:
-      - job-tracker-network
-
-volumes:
-  jenkins_data:
-
 networks:
   job-tracker-network:
     driver: bridge
