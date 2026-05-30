@@ -7,7 +7,7 @@ const Navbar = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
 
   return (
-    <AppBar position="static" style={{ backgroundColor: 'red' }} sx={{ backgroundColor: 'red' }}>
+    <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           <Button color="inherit" component={Link} to="/">Home</Button>
